@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /xbrz-java/
+Allow: /mabels-mansion/
