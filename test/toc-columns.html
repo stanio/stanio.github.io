@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Multi-column Table of Contents</title>
+  <meta name="color-scheme" content="light dark">
+  <style>
+    nav {
+      margin: 1em 0;
+    }
+
+    a {
+      max-width: 8em;
+    }
+
+    nav > table {
+      max-width: 100%;
+    }
+    nav > ul {
+      max-width: 32em;
+      list-style: none;
+      margin: 1em 0;
+      padding: 0;
+    }
+    nav.flow > ul > li {
+      margin: 0;
+      padding: 0;
+    }
+
+    nav.flow > ul {
+      display: flex;
+      flex-flow: row wrap;
+    }
+    nav.flow > ul > li {
+      flex: 1 0 8em;
+    }
+
+    nav.columns > ul {
+      columns: 8em auto;
+      column-gap: 0;
+      column-fill: balance;
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="toc">
+    <table width="512" border="0" cellspacing="0" cellpadding="0">
+      <col width="25%">
+      <col width="25%">
+      <col width="25%">
+      <col width="25%">
+      <tr>
+        <td><a>Genesis</a>
+        <td><a>Exodus</a>
+        <td><a>Leviticus</a>
+        <td><a>Numbers</a>
+      </tr>
+      <tr>
+        <td><a>Deuteronomy</a>
+        <td><a>Joshua</a>
+        <td><a>Judges</a>
+        <td><a>RuthI</a>
+      </tr>
+      <tr>
+        <td><a>SamuelII</a>
+        <td><a>SamuelI</a>
+        <td><a>KingsII</a>
+        <td><a>Kings</a>
+      </tr>
+    </table>
+  </nav>
+
+<nav class="flow">
+  <ul>
+    <li><a>Genesis</a>
+    <li><a>Exodus</a>
+    <li><a>Leviticus</a>
+    <li><a>Numbers</a><br>
+    <li><a>Deuteronomy</a>
+    <li><a>Joshua</a>
+    <li><a>Judges</a>
+    <li><a>RuthI</a><br>
+    <li><a>SamuelII</a>
+    <li><a>SamuelI</a>
+    <li><a>KingsII</a>
+    <li><a>Kings</a>
+  </ul>
+</nav>
+
+<nav class="columns">
+  <ul>
+    <li><a>Genesis</a>
+    <li><a>Deuteronomy</a>
+    <li><a>SamuelII</a>
+    <li><a>Exodus</a>
+    <li><a>Joshua</a>
+    <li><a>SamuelI</a>
+    <li><a>Leviticus</a>
+    <li><a>Judges</a>
+    <li><a>KingsII</a>
+    <li><a>Numbers</a>
+    <li><a>RuthI</a>
+    <li><a>Kings</a>
+  </ul>
+</nav>
+
+</body>
+</html>
