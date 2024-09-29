@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <meta charset="UTF-8">
 <title>Collapsible Table of Contents</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
 <style>
   body {
     font-family: sans-serif;
@@ -33,7 +35,8 @@
 </style>
 
 <aside>
-<i>Hold <kbd>Ctrl</kbd> to expand/collapse complete branch.</i>
+<i>Use <kbd>Right-Arrow</kbd> and <kbd>Left-Arrow</kbd> to expand/collapse via the keyboard.
+Hold <kbd>Ctrl</kbd> to expand/collapse complete branch, using both the keyboard and the mouse.</i>
 </aside>
 
 <ul id="toc">
@@ -139,10 +142,12 @@
     });
 
     toc.addEventListener("keydown", evt => {
-      if (evt.code === "ArrowRight") {
-          expand(closestItem(evt.target), evt.ctrlKey);
-      } else if (evt.code == "ArrowLeft") {
-          collapse(closestItem(evt.target), evt.ctrlKey);
+      const item = closestItem(evt.target);
+      const collapsible = item && item.matches(".collapsed, .expanded");
+      if (evt.code === "ArrowRight" && collapsible) {
+          expand(item, evt.ctrlKey);
+      } else if (evt.code == "ArrowLeft" && collapsible) {
+          collapse(item, evt.ctrlKey);
       }
     });
 
