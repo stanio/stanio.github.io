@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<title>Collapsible Table of Contents</title>
+<style>
+  body {
+    font-family: sans-serif;
+    line-height: 1.4;
+  }
+  #toc, #toc ul {
+    list-style: none;
+    margin-left: 0;
+    padding-left: 0;
+  }
+  #toc li {
+    padding-left: 4ch;
+  }
+  #toc > li {
+    padding-left: 2ch;
+  }
+  #toc li.collapsed > ul {
+    display: none;
+  }
+  #toc li::before {
+    position: absolute;
+    margin-left: -2ch;
+  }
+  #toc li.collapsed::before {
+    content: "\25B8";
+  }
+  #toc li.expanded::before {
+    content: "\25BE";
+  }
+</style>
+
+<aside>
+<i>Hold <kbd>Ctrl</kbd> to expand/collapse complete branch.</i>
+</aside>
+
+<ul id="toc">
+<li><a href="#debian-whats-that">1 Debian? What’s that?</a>
+  <ul>
+  <li><a href="#the-debian-gnulinux-system">1.1 The Debian GNU/Linux system</a></li>
+  <li><a href="#where-to-find-help">1.2 Where to find help</a>
+    <ul>
+    <li><a href="#about-forums-geeks-and-the-terminal">1.2.1 About forums, geeks, and the terminal</a></li>
+    </ul></li>
+  <li><a href="#few-links-before-moving-on">1.3 Few links before moving on</a></li>
+  </ul></li>
+<li><a href="#a-simplified-introduction-to-computer">2 A simplified introduction to computer</a>
+  <ul>
+  <li><a href="#test-your-level-of-computer-skills">2.1 Test your level of computer skills</a></li>
+  <li><a href="#the-mouse">2.2 The mouse</a>
+    <ul>
+    <li><a href="#left-click-and-double-click">2.2.1 Left-click and double-click </a></li>
+    <li><a href="#right-click">2.2.2 Right-click </a></li>
+    <li><a href="#middle-click">2.2.3 Middle-click </a></li>
+    <li><a href="#actions-executed-with-the-mouse">2.2.4 Actions executed with the mouse</a>
+      <ul>
+      <li><a href="#drag-and-drop">2.2.4.1 Drag-and-drop</a></li>
+      <li><a href="#selection-of-several-items">2.2.4.2 Selection of several items</a></li>
+      <li><a href="#text-selection">2.2.4.3 Text selection</a></li>
+      <li><a href="#copy-and-paste-a-selection">2.2.4.4 Copy and paste a selection</a></li>
+      </ul></li>
+    </ul></li>
+  <li><a href="#the-keyboard">2.3 The keyboard</a>
+    <ul>
+    <li><a href="#the-modifier-keys">2.3.1 The modifier keys</a></li>
+    <li><a href="#keyboard-shortcuts">2.3.2 Keyboard shortcuts</a></li>
+    <li><a href="#special-characters">2.3.3 Special characters</a></li>
+    </ul></li>
+  <li><a href="#online-exercises">2.4 Online exercises</a></li>
+  <li><a href="#the-users">2.5 The users</a>
+    <ul>
+    <li><a href="#user">2.5.1 $USER</a></li>
+    <li><a href="#root">2.5.2 #ROOT</a></li>
+    <li><a href="#separate-to-secure">2.5.3 Separate to secure</a></li>
+    </ul></li>
+  </ul></li>
+<li><a href="#the-graphical-environment">3 The graphical environment</a>
+  <ul>
+  <li><a href="#the-task-bar">3.1 The task bar</a></li>
+  <li><a href="#menus">3.2 Menus</a></li>
+  <li><a href="#windows">3.3 Windows</a>
+    <ul>
+    <li><a href="#closing-a-window">3.3.1 Closing a window</a></li>
+    <li><a href="#moving-a-window">3.3.2 Moving a window</a></li>
+    <li><a href="#resizing-a-window">3.3.3 Resizing a window</a></li>
+    </ul></li>
+  <li><a href="#virtual-desktops">3.4 Virtual desktops</a></li>
+  <li><a href="#file-management-on-gnulinux">3.5 File management on GNU/Linux</a>
+    <ul>
+    <li><a href="#your-personal-data">3.5.1 Your personal data</a></li>
+    <li><a href="#your-hidden-files">3.5.2 Your hidden files</a></li>
+    <li><a href="#the-file-system">3.5.3 The file system</a></li>
+    </ul></li>
+  <li><a href="#an-example-of-file-manager-thunar">3.6 An example of file manager: Thunar</a>
+    <ul>
+    <li><a href="#simplified-presentation-of-thunar">3.6.1 Simplified presentation of Thunar</a></li>
+    <li><a href="#usage-and-functionality-of-thunar">3.6.2 Usage and functionality of Thunar</a>
+      <ul>
+      <li><a href="#consulting-your-data">3.6.2.1 Consulting your data</a></li>
+      <li><a href="#data-selection">3.6.2.2 Data selection</a></li>
+      <li><a href="#classifying-the-data">3.6.2.3 Classifying the data</a></li>
+      <li><a href="#data-modification-using-the-contextual-menu">3.6.2.4 Data modification using the contextual menu</a></li>
+      <li><a href="#data-removal">3.6.2.5 Data removal</a></li>
+      </ul></li>
+    </ul></li>
+  <li><a href="#rights-and-permissions">3.7 Rights and permissions</a>
+    <ul>
+    <li><a href="#rights-and-permissions-from-the-contextual-menu">3.7.1 Rights and permissions from the contextual menu</a></li>
+    </ul></li>
+  <li><a href="#the-terminal">3.8 The terminal</a>
+    <ul>
+    <li><a href="#presentation">3.8.1 Presentation</a></li>
+    <li><a href="#user-mode-example">3.8.2 User mode example</a></li>
+    <li><a href="#administrator-mode-example">3.8.3 Administrator mode example</a>
+      <ul>
+      <li><a href="#root-and-user">3.8.3.1 “root” and “user”</a></li>
+      <li><a href="#user-without-root">3.8.3.2 “user” without “root”</a></li>
+      </ul></li>
+    </ul></li>
+  </ul></li>
+</ul>
+
+<script>
+  (() => {
+    const toc = document.getElementById("toc");
+
+    toc.querySelectorAll("ul").
+        forEach(list => list.parentNode.classList.add("collapsed"));
+
+    toc.addEventListener("click", evt => {
+      const item = closestItem(evt.target);
+      if (item && item.classList.contains("collapsed")) {
+          expand(item, evt.ctrlKey);
+      } else if (item == evt.target && item.classList.contains("expanded")) {
+          collapse(item, evt.ctrlKey);
+      }
+    });
+
+    toc.addEventListener("keydown", evt => {
+      if (evt.code === "ArrowRight") {
+          expand(closestItem(evt.target), evt.ctrlKey);
+      } else if (evt.code == "ArrowLeft") {
+          collapse(closestItem(evt.target), evt.ctrlKey);
+      }
+    });
+
+    function collapse(item, inDepth) {
+      let classList = item.classList;
+      classList.add("collapsed");
+      classList.remove("expanded");
+      if (inDepth) {
+        item.querySelectorAll("li.expanded").
+            forEach(descendant => collapse(descendant, false));
+      }
+    }
+
+    function expand(item, inDepth, ancestry = true) {
+      // Ensure expanded ancestry
+      let current = item;
+      while (current) {
+        let classList = current.classList;
+        classList.add("expanded");
+        classList.remove("collapsed");
+        current = ancestry && closestItem(current.parentNode);
+      }
+      if (inDepth) {
+        item.querySelectorAll("li.collapsed").
+            forEach(descendant => expand(descendant, false, false));
+      }
+    }
+
+    function closestItem(target) {
+      return target.closest("#toc li");
+    }
+  })();
+</script>
